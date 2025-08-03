@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+  }
+  
+  /* Full-Screen Loader */
+  .full-screen-loader {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(-45deg, #4CAF50, #2196F3, #81C784, #64B5F6);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+  
+  .full-screen-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* Square Loader Animation */
+  .square-loader {
+    width: 50px;
+    height: 50px;
+    background: white;
+    animation: squareBounce 1.2s infinite ease-in-out;
+  }
+  
+  @keyframes squareBounce {
+    0%, 100% {
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(90deg) scale(1.2);
+    }
+    50% {
+      transform: rotate(180deg) scale(1);
+    }
+    75% {
+      transform: rotate(270deg) scale(1.2);
+    }
+  }
+  
+  .loading-text {
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  /* Dashboard Layout */
+  .dashboard {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+  }
+  
+  /* Gradient Animation */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .dashboard {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  
+
+/*BOTTOM NAR*/
+/* Bottom Navigation Bar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6px 0;
+    z-index: 1000;
+  }
+  
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #777;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-item .material-icons {
+    font-size: 24px;
+    margin-bottom: 2px;
+  }
+  
+  .nav-item:hover,
+  .nav-item.active {
+    color: #4CAF50; /* Active Brand Color */
+  }
+  
+  .nav-text {
+    font-size: 0.75rem;
+  }
+  
+  /* Desktop view - keep at bottom but smaller */
+  @media (min-width: 769px) {
+    .bottom-nav {
+      width: 100%;
+      max-width: 600px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 15px 15px 0 0;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+    }
+  }
+  

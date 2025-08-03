@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carilend Dashboard</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <!-- Full-Screen Loader -->
+  <div class="full-screen-loader">
+    <div class="square-loader"></div>
+    <p class="loading-text">Loading your profile information...</p>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <div class="section">Profile Overview</div>
+    <div class="section">Account Balance</div>
+    <div class="section">Recent Transactions</div>
+    <div class="section">Loan Status</div>
+  </div>
+
+  <!-- ... existing dashboard code above ... -->
+
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+    <a href="#" class="nav-item active">
+      <span class="material-icons">home</span>
+      <span class="nav-text">Home</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="material-icons">receipt_long</span>
+      <span class="nav-text">Transactions</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="material-icons">account_balance</span>
+      <span class="nav-text">Loans</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="material-icons">person</span>
+      <span class="nav-text">Profile</span>
+    </a>
+  </nav>
+  
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.querySelector(".full-screen-loader").classList.add("fade-out");
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
