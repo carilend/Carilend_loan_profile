@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Splash Screen with Animated Gradient Background */
+  .splash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(-45deg, #4CAF50, #2196F3, #81C784, #64B5F6);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+    overflow: hidden;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .splash-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Logo Animation */
+  .logo {
+    width: 180px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: scale(0.8);
+    border-radius: 50%;
+    animation: logoIn 1.2s ease forwards, logoHold 0.5s ease forwards 1.2s, logoOut 0.8s ease forwards 2.2s;
+  }
+  
+  @keyframes logoIn { to { opacity: 1; transform: scale(1); } }
+  @keyframes logoHold { to { opacity: 1; transform: scale(1.05); } }
+  @keyframes logoOut { to { opacity: 0; transform: scale(0.7); } }
+  
+  /* Welcome Text Animation */
+  .welcome-text {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textIn 1s ease forwards 3.1s, textBounce 0.6s ease-in-out 4.1s;
+  }
+  
+  @keyframes textIn { to { opacity: 1; transform: translateY(0); } }
+  @keyframes textBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  /* Loader Section */
+  .loading-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: loaderIn 0.5s ease forwards 5.9s;
+  }
+  
+  @keyframes loaderIn { to { opacity: 1; } }
+  
+  /* Spinner Loader */
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Loader Text */
+  .loading-text {
+    font-size: 0.95rem;
+    color: white;
+    font-weight: 500;
+  }
+  
