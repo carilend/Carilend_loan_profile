@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Selfie</title>
+  <link rel="stylesheet" href="./css/selfie.css"> <!-- reuse your CSS -->
+</head>
+<body>
+  <div class="form-shell">
+    <!-- Brand -->
+    <div class="brand">
+      <h1>Identity Verification</h1>
+      <p class="sub">Final Step: Upload Your Selfie</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div> <!-- Selfie step active -->
+    </div>
+
+    <!-- Selfie Upload -->
+    <form id="selfieForm">
+      <div class="step active">
+        <h2>Upload a Clear Selfie</h2>
+        <p>Please ensure your face is visible and well-lit.</p>
+
+        <label for="selfie">Choose Selfie</label>
+        <input type="file" id="selfie" accept="image/*" capture="user" required>
+
+        <!-- Preview container -->
+        <div class="preview">
+            <img id="previewImage" src="" alt="Preview will appear here" />
+        </div>
+
+        <div class="btns">
+          <button type="submit" class="btn">Upload</button>
+          <button type="button" class="btn ghost" onclick="history.back()">Back</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Loader -->
+    <div class="loader hidden" id="loader">
+      <div class="spinner"></div>
+      <p>Uploading your selfie...</p>
+    </div>
+  </div>
+
+   <script src="./js/slefie.js"></script>
+</body>
+</html>

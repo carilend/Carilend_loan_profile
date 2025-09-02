@@ -1,0 +1,149 @@
+/* Background with animated brand gradient */
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(-45deg,#4CAF50,#2196F3,#81C784,#64B5F6);
+  background-size:400% 400%;
+  animation:gradientBG 8s ease infinite;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+@keyframes gradientBG{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Glass card shell */
+.form-shell{
+  width:100%;
+  max-width:520px;
+  background:rgba(255,255,255,0.15);
+  color:#fff;
+  backdrop-filter:blur(15px);
+  border-radius:16px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.25);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Brand header */
+.brand{
+  text-align:center;
+  padding:24px 24px 8px;
+}
+.logo{
+  width:72px;height:72px;border-radius:50%;object-fit:cover;
+  box-shadow:0 4px 12px rgba(0,0,0,0.25);
+}
+h1{
+  font-size:1.25rem;margin:12px 0 4px;
+}
+.sub{
+  margin:0;
+  opacity:.9;
+  font-size:.9rem;
+}
+
+/* Progress dots */
+.progress{
+  display:flex;gap:8px;justify-content:center;margin:12px 0 4px;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,0.35);
+  transition:transform .25s ease, background .25s ease;
+}
+.dot.active{
+  background:#fff; transform:scale(1.25);
+}
+
+/* Steps */
+form{ position:relative; padding:8px 24px 24px; min-height:520px; }
+.step{
+  position:absolute; inset:8px 24px 24px 24px;
+  opacity:0; transform:translateX(100px);
+  transition:transform .45s ease, opacity .45s ease;
+  pointer-events:none;
+}
+.step.active{
+  opacity:1; transform:translateX(0);
+  pointer-events:auto;
+}
+.step.exit-left{ transform:translateX(-120px); opacity:0; }
+.step.exit-right{ transform:translateX(120px); opacity:0; }
+
+h2{ margin:6px 0 12px; font-size:1.1rem; }
+
+/* Inputs */
+label{
+  display:block; margin-top:10px; font-size:.9rem; font-weight:600;
+}
+input{
+  width:92%; margin-top:6px; padding:5%;
+  border:none; border-radius:10px; font-size:1rem;
+  color:#fff; background:rgba(255,255,255,0.18);
+  outline:2px solid transparent; transition:outline-color .2s;
+}
+input::placeholder{ color:rgba(255,255,255,0.8); }
+input:focus{ outline-color:rgba(255,255,255,0.65); }
+
+/* Currency field */
+.currency{
+  display:flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,0.18);
+  border-radius:10px; padding:0 .6rem 0 .6rem; margin-top:6px;
+}
+.currency span{
+  font-weight:700; font-size:.9rem; opacity:.95;
+}
+.currency input{
+  background:transparent; border-radius:0; padding:.75rem .5rem; margin:0;
+}
+
+/* Buttons */
+.btns{
+  display:flex; gap:10px; margin-top:18px;
+}
+.btn{
+  flex:1; padding:.9rem 1rem; border:none; border-radius:10px;
+  background:#4CAF50; color:#fff; font-size:1rem; cursor:pointer;
+  box-shadow:0 6px 18px rgba(76,175,80,.35);
+  transition:transform .1s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn:hover{ background:#45a049; box-shadow:0 8px 22px rgba(76,175,80,.45); }
+.btn:active{ transform:translateY(1px); }
+.btn.ghost{
+  background:rgba(255,255,255,.18); box-shadow:none;
+}
+.btn.ghost:hover{ background:rgba(255,255,255,.28); }
+
+/* Declaration (optional) */
+.declaration{
+  display:flex; align-items:flex-start; gap:10px; margin-top:14px; font-size:.92rem;
+}
+.declaration input{ width:auto; }
+
+/* Loader overlay */
+.loader{
+  position:absolute; inset:0;
+  background:rgba(8,12,20,.35);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:14px; text-align:center; padding:24px;
+}
+.loader.hidden{ display:none; }
+.spinner{
+  width:54px;height:54px;border:5px solid rgba(255,255,255,.35);
+  border-top-color:#fff;border-radius:50%; animation:spin 1s linear infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.loader p{ margin:0; font-size:1rem; }
+
+/* Responsive */
+@media (max-width:480px){
+  .form-shell{ max-width:100%; }
+  form{ min-height:600px; padding:8px 16px 24px; }
+}

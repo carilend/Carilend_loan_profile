@@ -1,0 +1,201 @@
+/* Background gradient */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #4CAF50, #2196F3, #81C784, #64B5F6);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+  }
+  
+  /* Card container */
+  .form-shell {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    text-align: center;
+  }
+  
+  /* Brand / Header */
+  .brand img.logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+  h1 {
+    font-size: 1.25rem;
+    margin: 12px 0 4px;
+  }
+  
+  .sub {
+    margin: 0;
+    opacity: .9;
+    font-size: .9rem;
+  }
+  
+  /* Progress dots */
+  .progress {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 16px 0;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    transition: transform .25s ease, background .25s ease;
+  }
+  .dot.active {
+    background: #fff;
+    transform: scale(1.25);
+  }
+  
+  /* Upload input */
+  label {
+    display: block;
+    margin: 16px 0 6px;
+    font-size: .95rem;
+    font-weight: 600;
+  }
+  input[type="file"] {
+    display: block;
+    margin: 0 auto 18px;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    border: none;
+    outline: 2px solid transparent;
+    cursor: pointer;
+  }
+  input[type="file"]::file-selector-button {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: .6rem 1rem;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: background .2s ease, transform .1s ease;
+  }
+  input[type="file"]::file-selector-button:hover {
+    background: #45a049;
+  }
+  input[type="file"]::file-selector-button:active {
+    transform: translateY(1px);
+  }
+  /* Preview container */
+.preview {
+    margin: 16px 0;
+    text-align: center;
+  }
+  
+  .preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    display: none; /* hidden until file is chosen */
+  }
+  
+  
+  /* Buttons */
+  .btns {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .btn {
+    flex: 1;
+    padding: .9rem 1rem;
+    border: none;
+    border-radius: 10px;
+    background: #4CAF50;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(76,175,80,.35);
+    transition: transform .1s ease, background .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover { background: #45a049; box-shadow: 0 8px 22px rgba(76,175,80,.45); }
+  .btn:active { transform: translateY(1px); }
+  
+  .btn.ghost {
+    background: rgba(255,255,255,.18);
+    box-shadow: none;
+  }
+  .btn.ghost:hover { background: rgba(255,255,255,.28); }
+  
+  /* Loader overlay */
+  .loader {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 12, 20, .45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    padding: 24px;
+    z-index: 999;
+  }
+  .loader.hidden { display: none; }
+  
+  .spinner {
+    width: 54px;
+    height: 54px;
+    border: 5px solid rgba(255, 255, 255, .35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loader p { margin: 0; font-size: 1rem; }
+  
+
+  /* Responsive */
+@media (max-width: 480px) {
+    .form-shell {
+      width: 100%;          /* take full available width */
+      max-width: 95%;       /* almost full, but with some margin on sides */
+      padding: 20px;        /* comfortable padding */
+    }
+  
+    h1 {
+      font-size: 1.4rem;    /* make heading a bit larger */
+    }
+  
+    .btn {
+      font-size: 1.05rem;   /* bigger buttons for touch */
+      padding: 1rem;
+    }
+  
+    input[type="file"] {
+      width: 100%;          /* expand input for better tap area */
+      font-size: .95rem;
+    }
+  }
+  
+  

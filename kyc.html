@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KYC / Personal Loan Application</title>
+  <link rel="stylesheet" href="css/kyc.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+</head>
+<body>
+  <div class="form-shell">
+    <div class="brand">
+      <img src="assets/OIP.jpg" alt="Logo" class="logo" />
+      <h1>Personal Loan Application</h1>
+      <p class="sub">Step <span id="stepNum">1</span> of 4</p>
+      <div class="progress">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
+    <form id="kycForm" novalidate>
+      <!-- STEP 1: Applicant Information -->
+      <section class="step active">
+        <h2>1. Applicant Information</h2>
+
+        <label>Full Name</label>
+        <input type="text" name="fullname" placeholder="Jane Doe" required />
+
+        <label>Date of Birth</label>
+        <input type="date" name="dob" required />
+
+        <label>Nationality</label>
+        <input type="text" name="nationality" placeholder="Barbadian" required />
+
+        <label>ID Number (NIS/Passport)</label>
+        <input type="text" name="idNumber" placeholder="NIS/Passport No." required />
+
+        <label>Address</label>
+        <input type="text" name="address" placeholder="Street, City, Country" required />
+
+        <label>Phone</label>
+        <input type="tel" name="phone" placeholder="+1 246 555 1234" required />
+
+        <!-- <label>Email</label>
+        <input type="email" name="email" placeholder="name@example.com" required /> -->
+
+        <div class="btns">
+          <button type="button" class="btn next">Next</button>
+        </div>
+      </section>
+
+      <!-- STEP 2: Employment Information -->
+      <section class="step">
+        <h2>2. Employment Information</h2>
+
+        <label>Employer</label>
+        <input type="text" name="employer" placeholder="Company Ltd." required />
+
+        <label>Position</label>
+        <input type="text" name="position" placeholder="Role / Title" required />
+
+        <label>Length of Employment</label>
+        <input type="text" name="lengthOfEmployment" placeholder="e.g., 3 years" required />
+
+        <label>Monthly Income</label>
+        <input type="number" name="monthlyIncome" inputmode="decimal" min="0" step="0.01" placeholder="e.g., 3500" required />
+
+        <div class="btns">
+          <button type="button" class="btn ghost prev">Back</button>
+          <button type="button" class="btn next">Next</button>
+        </div>
+      </section>
+
+      <!-- STEP 3: Loan Details -->
+      <section class="step">
+        <h2>3. Loan Details</h2>
+
+        <label>Amount Requested (BBD)</label>
+        <div class="currency">
+          <span>BBD</span>
+          <input type="number" name="amountRequested" inputmode="decimal" min="0" step="0.01" placeholder="e.g., 10000" required />
+        </div>
+
+        <label>Purpose of Loan</label>
+        <input type="text" name="purposeOfLoan" placeholder="e.g., Home improvement" required />
+
+        <label>Repayment Term</label>
+        <input type="text" name="repaymentTerm" placeholder="e.g., 24 months" required />
+
+        <div class="btns">
+          <button type="button" class="btn ghost prev">Back</button>
+          <button type="button" class="btn next">Next</button>
+        </div>
+      </section>
+
+      <!-- STEP 4: Banking Information -->
+      <section class="step">
+        <h2>4. Banking Information</h2>
+
+        <label>Bank Name</label>
+        <input type="text" name="bankName" placeholder="e.g., CIBC FirstCaribbean" required />
+
+        <label>Account Type</label>
+        <input type="text" name="accountType" placeholder="Savings / Chequing" required />
+
+        <label>Account Number</label>
+        <input type="text" name="accountNumber" placeholder="**********" required />
+
+        <!-- Optional declaration (uncomment to enforce) -->
+        <!--
+        <label class="declaration">
+          <input type="checkbox" name="declaration" required />
+          I declare that the information provided is true and complete.
+        </label>
+        -->
+
+        <div class="btns">
+          <button type="button" class="btn ghost prev">Back</button>
+          <button type="submit" class="btn">Submit Application</button>
+        </div>
+      </section>
+    </form>
+
+    <!-- Loader overlay -->
+    <div id="loader" class="loader hidden">
+      <div class="spinner"></div>
+      <p>Submitting your application…</p>
+    </div>
+  </div>
+
+  <script src="js/kyc.js"></script>
+</body>
+</html>

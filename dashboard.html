@@ -17,7 +17,24 @@
 
   <!-- Dashboard -->
   <div class="dashboard">
-    <div class="section">Profile Overview</div>
+    <div class="section profile-card">
+      <div class="profile-top">
+        <div class="profile-text">
+          <h2 id="greeting-text">Good!</h2>
+          <p id="user-name">Aamna Arif</p>
+        </div>
+        <div class="profile-avatar">
+          <img src="images/selfie.jpg" alt="Profile Picture">
+        </div>
+      </div>
+    
+      <div class="profile-balance">
+        <h3 id="loan-amount">$7,125.00</h3>
+        <p>Available Balance</p>
+      </div>
+    </div>
+    
+    
     <div class="section">Account Balance</div>
     <div class="section">Recent Transactions</div>
     <div class="section">Loan Status</div>
@@ -49,13 +66,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
 
-  <script>
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.querySelector(".full-screen-loader").classList.add("fade-out");
-      }, 3000);
-    });
-  </script>
+  <script src="./js/dashboard.js"></script>
 
 </body>
 </html>
