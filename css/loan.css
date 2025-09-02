@@ -1,0 +1,187 @@
+/* Global Theme */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #4CAF50, #2196F3, #81C784, #64B5F6);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Content Layout */
+  .content {
+    display: grid;
+    gap: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+    grid-template-columns: 1fr; /* Mobile */
+  }
+  
+  @media (min-width: 768px) {
+    .content {
+      grid-template-columns: 1fr 1fr; /* Desktop: 2 per row */
+    }
+  }
+  
+  /* Section Styling */
+  .section {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  .section:nth-child(1) { animation-delay: 0.2s; }
+  .section:nth-child(2) { animation-delay: 0.4s; }
+  .section:nth-child(3) { animation-delay: 0.6s; }
+  .section:nth-child(4) { animation-delay: 0.8s; }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+  }
+  
+  .section-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+  }
+  
+  /* Loan Card */
+  .card-section {
+    text-align: center;
+  }
+  
+  .loan-card {
+    background: linear-gradient(135deg, #5A73FC, #92B4F4);
+    color: white;
+    padding: 20px;
+    border-radius: 16px;
+    max-width: 320px;
+    margin: 0 auto;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  .loan-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+  
+  .loan-row .label {
+    opacity: 0.9;
+  }
+  
+  .loan-row .value {
+    font-weight: bold;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    width: 100%;
+    height: 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.3);
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .progress {
+    height: 100%;
+    background: #FFD700; /* gold highlight */
+    border-radius: 8px;
+  }
+  
+  /* Loan History */
+  .loan-history {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .loan-history li {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+  }
+  
+  .loan-history .material-icons {
+    margin-right: 8px;
+  }
+  
+  /* Apply Button */
+  .apply-btn {
+    background: #FFD700;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .apply-btn:hover {
+    background: #FFC107;
+  }
+  
+  /* Bottom Navigation */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.12);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+  }
+  
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-item .material-icons {
+    font-size: 24px;
+    margin-bottom: 2px;
+  }
+  
+  .nav-item:hover,
+  .nav-item.active {
+    color: #FFD700;
+  }
+  
+  .nav-text {
+    font-size: 0.75rem;
+  }
+  

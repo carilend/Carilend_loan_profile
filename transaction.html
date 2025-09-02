@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/transaction.css">
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <main class="content">
+    <!-- Section 1: Loan Status Card -->
+    <section class="section card-section">
+      <h2 class="section-title">Loan Status</h2>
+      <div class="loan-card">
+        <div class="loan-row">
+          <span class="label">Status:</span>
+          <span class="value">Active</span>
+        </div>
+        <div class="loan-row">
+          <span class="label">Amount:</span>
+          <span class="value">$5,000</span>
+        </div>
+        <div class="loan-row">
+          <span class="label">Date:</span>
+          <span class="value" id="currentDate"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Filters -->
+    <section class="section">
+      <h2 class="section-title">Filter Transactions</h2>
+      <div class="filters">
+        <button class="filter-btn">All</button>
+        <button class="filter-btn">Income</button>
+        <button class="filter-btn">Expenses</button>
+      </div>
+    </section>
+
+    <!-- Section 3: Transaction List -->
+    <section class="section">
+      <h2 class="section-title">Recent Transactions</h2>
+      <ul class="transaction-list">
+        <li class="transaction-item">
+          <span class="material-icons">arrow_downward</span>
+          Salary credited <span class="amount">+ $2,000</span>
+        </li>
+        <li class="transaction-item">
+          <span class="material-icons">arrow_upward</span>
+          Grocery shopping <span class="amount">- $120</span>
+        </li>
+        <li class="transaction-item">
+          <span class="material-icons">arrow_upward</span>
+          Mobile recharge <span class="amount">- $25</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 4: Placeholder / Extra Content -->
+    <section class="section">
+      <h2 class="section-title">Insights</h2>
+      <p>Analytics or extra content can go here.</p>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item">
+      <span class="material-icons">home</span>
+      <span class="nav-text">Home</span>
+    </a>
+    <a href="transaction.html" class="nav-item active">
+      <span class="material-icons">receipt_long</span>
+      <span class="nav-text">Transactions</span>
+    </a>
+    <a href="loan.html" class="nav-item">
+      <span class="material-icons">account_balance</span>
+      <span class="nav-text">Loans</span>
+    </a>
+    <a href="profile.html" class="nav-item">
+      <span class="material-icons">person</span>
+      <span class="nav-text">Profile</span>
+    </a>
+  </nav>
+
+  <script>
+    // Set current date in Loan Status section
+    document.getElementById("currentDate").textContent =
+      new Date().toLocaleDateString();
+  </script>
+</body>
+</html>

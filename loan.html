@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loans</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/loan.css">
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <main class="content">
+    <!-- Section 1: Active Loan Card -->
+    <section class="section card-section">
+      <h2 class="section-title">Active Loan</h2>
+      <div class="loan-card">
+        <div class="loan-row">
+          <span class="label">Status:</span>
+          <span class="value">Active</span>
+        </div>
+        <div class="loan-row">
+          <span class="label">Loan Amount:</span>
+          <span class="value">$10,000</span>
+        </div>
+        <div class="loan-row">
+          <span class="label">Due Date:</span>
+          <span class="value">12/15/2025</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Repayment Progress -->
+    <section class="section">
+      <h2 class="section-title">Repayment Progress</h2>
+      <div class="progress-bar">
+        <div class="progress" style="width: 65%;"></div>
+      </div>
+      <p>65% repaid</p>
+    </section>
+
+    <!-- Section 3: Loan History -->
+    <section class="section">
+      <h2 class="section-title">Loan History</h2>
+      <ul class="loan-history">
+        <li><span class="material-icons">check_circle</span> Loan #1234 – Fully Paid – $5,000</li>
+        <li><span class="material-icons">check_circle</span> Loan #5678 – Fully Paid – $3,200</li>
+        <li><span class="material-icons">hourglass_bottom</span> Loan #9101 – Active – $10,000</li>
+      </ul>
+    </section>
+
+    <!-- Section 4: Apply for Loan -->
+    <section class="section">
+      <h2 class="section-title">Apply for New Loan</h2>
+      <button class="apply-btn">Apply Now</button>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item">
+      <span class="material-icons">home</span>
+      <span class="nav-text">Home</span>
+    </a>
+    <a href="transaction.html" class="nav-item">
+      <span class="material-icons">receipt_long</span>
+      <span class="nav-text">Transactions</span>
+    </a>
+    <a href="loan.html" class="nav-item active">
+      <span class="material-icons">account_balance</span>
+      <span class="nav-text">Loans</span>
+    </a>
+    <a href="profile.html" class="nav-item">
+      <span class="material-icons">person</span>
+      <span class="nav-text">Profile</span>
+    </a>
+  </nav>
+</body>
+</html>
