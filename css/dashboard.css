@@ -194,4 +194,221 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
+  /* Quick Actions Section */
+.quick-actions1 {
+  padding: 20px;
+}
+}
+
+
+/* Quick Actions Section */
+.quick-actions1 {
+  display: flex;
+  justify-content: space-between;
+  background: #1e2a38; /* Dark theme background */
+  padding: 100px 20px;
+  border-radius: 20px 20px 20px 20px; /* rounded top */
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  color: white;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 26px;
+  color: #1565c0; /* matches your icon theme */
+  transition: all 0.3s ease;
+}
+
+.icon-circle:hover {
+  background: #4CAF50; /* theme accent */
+  color: white;
+}
+
+.action p {
+  font-size: 0.85rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+
+
+/* Recent Transactions Section */
+.recent-transactions {
+  background: #1e2a38; /* same dark theme */
+  border-radius: 15px;
+  padding: 15px;
+  color: white;
+  margin-bottom: 50px;
+  /* margin-top: 20px; */
+}
+
+.recent-transactions h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Transaction item */
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transaction:last-child {
+  border-bottom: none;
+}
+
+.trans-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trans-icon {
+  background: #e0e0e0;
+  color: #1565c0; /* accent */
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 20px;
+}
+
+.trans-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.trans-date {
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Amounts */
+.trans-amount {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.trans-amount.debit {
+  color: #ff5252; /* red for money out */
+}
+
+.trans-amount.credit {
+  color: #4caf50; /* green for money in */
+}
+
+
+/* Loan Status Section */
+.loan-status {
+  background: #1e2a38;
+  border-radius: 15px;
+  padding: 15px;
+  color: white;
+  /* margin-top: 20px; */
+  margin-bottom: 50px;
+}
+
+.loan-status h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Loan Card Info */
+.loan-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.loan-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loan-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.loan-value {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Loan Status Text */
+.loan-status-text {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.loan-status-text.active {
+  color: #4caf50; /* green */
+}
+
+.loan-status-text.completed {
+  color: #2196f3; /* blue */
+}
+
+.loan-status-text.pending {
+  color: #ff9800; /* orange */
+}
+
+/* Progress Bar */
+.loan-progress {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  height: 100%;
+  width: 0; /* controlled inline in HTML or via JS */
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 5px;
+}
+
+
+/* Mobile Friendly */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  /* Quick Actions Section */
+.quick-actions1 {
+  padding: 20px; 
+}
+.recent-transactions {
+  margin-bottom: 0px;
+  /* margin-top: 20px; */
+}
 }
