@@ -1,4 +1,4 @@
-const token = localStorage.getItem("token");
+const token = localStorage.getItem("a");
 
 // File input preview
 const fileInput = document.getElementById("selfie");

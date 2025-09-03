@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer</title>
+  <link rel="stylesheet" href="css/transfer.css">
+</head>
+<body>
+  <div class="card">
+    <h2>Make a Transfer</h2>
+    <div class="balance">
+      Available Balance: <span id="balance">Loading...</span>
+    </div>
+    <form id="transferForm">
+      <div class="form-group">
+        <label for="recipient">Recipient Name</label>
+        <input type="text" id="recipient" required>
+      </div>
+      <div class="form-group">
+        <label for="accountNumber">Recipient Account Number</label>
+        <input type="text" id="accountNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description (optional)</label>
+        <textarea id="description" rows="3"></textarea>
+      </div>
+      <button type="submit">Send Money</button>
+    </form>
+  </div>
+
+  <script src="js/transfer.js"></script>
+</body>
+</html>
