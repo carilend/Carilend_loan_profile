@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
   setGreeting();
 
   const userName = document.getElementById("user-name")
+  const profileImage = document.getElementById("profileImage");
   const loanAmount = document.getElementById("loan-amount")
   const loanValues = document.querySelectorAll(".loan-value")
 
@@ -35,19 +36,26 @@ window.addEventListener("load", () => {
       const user = result.data[0]; // first profile object
       console.log(user)
       userName.innerHTML = user.fullname
-    // Reusable currency formatter
+      
+      if (user.profileImage) {
+        profileImage.src = user.profileImage; // ✅ load from backend
+      } else {
+        profileImage.src = "images/default-avatar.png"; // fallback
+      }
+
+      // Reusable currency formatter
       function formatCurrency(value, currency = "$") {
         // Make sure it's a number before formatting
         const num = Number(value);
         if (isNaN(num)) return `${currency}0`;
         return `${currency}${num.toLocaleString()}`;
-       }
+      }
   
-        // Example usage after fetching user profile
-        loanAmount.textContent = formatCurrency(user.amountRequested, "$");
-        loanValues.forEach(el => {
-            el.textContent = formatCurrency(user.amountRequested, "$");
-          });
+      // Example usage after fetching user profile
+      loanAmount.textContent = formatCurrency(user.amountRequested, "$");
+      loanValues.forEach(el => {
+          el.textContent = formatCurrency(user.amountRequested, "$");
+      });
 
     } catch (error) {
     //   document.getElementById("profile").innerText = "Error: " + error.message;

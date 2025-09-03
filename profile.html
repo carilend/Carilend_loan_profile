@@ -11,16 +11,23 @@
 </head>
 <body>
   <main class="content">
-    <!-- Section 1: User Info -->
-    <section class="section card-section">
-      <h2 class="section-title">User Information</h2>
-      <div class="profile-card">
-        <img src="images/user.png" alt="User Avatar" class="avatar">
-        <h3 class="user-name">John Doe</h3>
-        <p class="user-detail"><span class="material-icons">email</span> john.doe@email.com</p>
-        <p class="user-detail"><span class="material-icons">phone</span> +123 456 7890</p>
-      </div>
-    </section>
+  <!-- Section 1: User Info -->
+  <section class="section card-section">
+    <h2 class="section-title">User Information</h2>
+    <div class="profile-card">
+      <img id="profileImage" src="" alt="User Avatar" class="avatar">
+      <h3 class="user-name" id="userName">Loading...</h3>
+      <p class="user-detail">
+        <span class="material-icons">email</span> 
+        <span id="userEmail">Loading...</span>
+      </p>
+      <p class="user-detail">
+        <span class="material-icons">phone</span> 
+        <span id="userPhone">Loading...</span>
+      </p>
+    </div>
+  </section>
+
 
     <!-- Section 2: Account Settings -->
     <section class="section">
@@ -69,5 +76,7 @@
       <span class="nav-text">Profile</span>
     </a>
   </nav>
+
+  <script src="js/profile.js"></script>
 </body>
 </html>

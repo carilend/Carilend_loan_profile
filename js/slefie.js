@@ -1,4 +1,4 @@
-const token = localStorage.getItem("a");
+const token = localStorage.getItem("authToken");
 
 // File input preview
 const fileInput = document.getElementById("selfie");
@@ -29,13 +29,13 @@ document.getElementById("selfieForm").addEventListener("submit", async (e) => {
   }
 
   const formData = new FormData();
-  formData.append("selfie", file);
+  formData.append("image", file);
 
   document.getElementById("loader").classList.remove("hidden");
 
   try {
-    const res = await fetch("https://bankco-3jtv.onrender.com/api/v1/user/uploadSelfie", {
-      method: "POST",
+    const res = await fetch("https://bankco-3jtv.onrender.com/api/v1/user/uploadProfileImage", {
+      method: "PUT",
       headers: { "Authorization": `Bearer ${token}` },
       body: formData
     });
@@ -43,6 +43,7 @@ document.getElementById("selfieForm").addEventListener("submit", async (e) => {
     const result = await res.json();
     console.log("✅ Selfie uploaded:", result);
     alert("Selfie uploaded successfully!");
+    window.location.href = "dashboard.html"
   } catch (err) {
     console.error("❌ Upload error:", err);
     alert("Upload failed, please try again.");
