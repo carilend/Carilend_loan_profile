@@ -402,6 +402,7 @@ body {
   .dashboard {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    margin-bottom: 20%;
   }
   /* Quick Actions Section */
 .quick-actions1 {
@@ -410,8 +411,5 @@ body {
 .recent-transactions {
   margin-bottom: 0px;
   /* margin-top: 20px; */
-}
-.loan-status{
-  margin-bottom: 60px;
 }
 }
