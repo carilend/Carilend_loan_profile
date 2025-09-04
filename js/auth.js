@@ -37,7 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then(res => res.json().then(data => ({ ok: res.ok, data })))
         .then(({ ok, data }) => {
-          if (!ok) throw new Error(data.message || "Something went wrong");
+          if (!ok)
+           if(data.message === "Employee already exists"){
+            throw new Error ("Applicant already exists. You already have an account with us.")
+           } else {
+            throw new Error ("Something went wrong")
+           }
           // ✅ Save token and user data in localStorage
           localStorage.setItem("authToken", data.token);
           localStorage.setItem("userData", JSON.stringify(data.data[0])); // store first user object

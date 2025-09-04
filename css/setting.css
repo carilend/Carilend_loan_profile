@@ -1,0 +1,170 @@
+/* Global */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #4CAF50, #2196F3, #81C784, #64B5F6);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+    color: white;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Page Header */
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.1);
+    padding: 12px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    margin: 20px auto;
+    max-width: 1200px;
+  }
+  
+  .back-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.3s ease;
+  }
+  .back-btn:hover { background: rgba(255,255,255,0.3); }
+  
+  .page-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  
+  /* Content layout */
+  .content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: 1fr; /* mobile */
+  }
+  
+  /* Desktop view: two sections per row */
+  @media (min-width: 768px) {
+    .content {
+      grid-template-columns: 1fr 1fr;
+    }
+    .support {
+      grid-column: span 2; /* full width for support section */
+    }
+  }
+  
+  /* Section Style */
+  .section {
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  .fade-in:nth-child(1) { animation-delay: 0.2s; }
+  .fade-in:nth-child(2) { animation-delay: 0.4s; }
+  .fade-in:nth-child(3) { animation-delay: 0.6s; }
+  .fade-in:nth-child(4) { animation-delay: 0.8s; }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .section-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 8px;
+  }
+  
+  /* Settings List */
+  .settings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .settings-list li {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  .settings-list li .material-icons {
+    margin-right: 10px;
+  }
+  .settings-list li:hover {
+    color: #FFD700;
+  }
+  
+  /* Buttons */
+  .support-btn,
+  .logout-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background 0.3s;
+  }
+  .support-btn {
+    background: #FFD700;
+    color: black;
+  }
+  .support-btn:hover { background: #FFC107; }
+  .logout-btn {
+    background: #f44336;
+    color: white;
+  }
+  .logout-btn:hover { background: #d32f2f; }
+
+  
+    /* Make entire section a clickable card */
+a.section {
+    display: block;                /* so the section fills link area */
+    text-decoration: none;         /* remove blue underline */
+    color: inherit;                /* keep text color white */
+    border-radius: 20px;           /* match card style */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  a.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+  }
+  
+  /* Inside section text should not turn blue/purple */
+  a.section h2,
+  a.section p,
+  a.section li,
+  a.section span,
+  a.section button {
+    color: inherit;
+  }
+  

@@ -195,4 +195,25 @@ body {
   .nav-text {
     font-size: 0.75rem;
   }
-  
+  /* Make entire section a clickable card */
+a.section {
+  display: block;                /* so the section fills link area */
+  text-decoration: none;         /* remove blue underline */
+  color: inherit;                /* keep text color white */
+  border-radius: 20px;           /* match card style */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+/* Inside section text should not turn blue/purple */
+a.section h2,
+a.section p,
+a.section li,
+a.section span,
+a.section button {
+  color: inherit;
+}

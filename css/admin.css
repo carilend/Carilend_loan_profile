@@ -1,0 +1,128 @@
+/* Animated gradient background for Admin */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #4CAF50,#2196F3,#81C784,#64B5F6);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  /* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Apply fade-in to reusable sections */
+  .section, 
+  .card, 
+  .profile-card, 
+  .recent-transactions, 
+  .loan-status, 
+  .quick-actions1 {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  /* Staggered animation delays for a smooth sequence */
+  .section:nth-child(1),
+  .card:nth-child(1),
+  .profile-card:nth-child(1),
+  .recent-transactions:nth-child(1),
+  .loan-status:nth-child(1),
+  .quick-actions1:nth-child(1) { animation-delay: 0.3s; }
+  
+  .section:nth-child(2),
+  .card:nth-child(2),
+  .profile-card:nth-child(2),
+  .recent-transactions:nth-child(2),
+  .loan-status:nth-child(2),
+  .quick-actions1:nth-child(2) { animation-delay: 0.5s; }
+  
+  .section:nth-child(3),
+  .card:nth-child(3),
+  .profile-card:nth-child(3),
+  .recent-transactions:nth-child(3),
+  .loan-status:nth-child(3),
+  .quick-actions1:nth-child(3) { animation-delay: 0.7s; }
+  
+  .section:nth-child(4),
+  .card:nth-child(4),
+  .profile-card:nth-child(4),
+  .recent-transactions:nth-child(4),
+  .loan-status:nth-child(4),
+  .quick-actions1:nth-child(4) { animation-delay: 0.9s; }
+  
+  .dashboard-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .dashboard-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+  
+  .admin-dashboard {
+    padding: 20px;
+  }
+  
+  .section-title {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .overview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  

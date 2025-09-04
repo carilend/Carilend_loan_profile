@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #4CAF50, #2196F3, #81C784, #64B5F6);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+    color: white;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+/* Content layout */
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: 1fr; /* Default: mobile - single column */
+  }
+  
+  /* Desktop view: two columns */
+  @media (min-width: 768px) {
+    .content {
+      grid-template-columns: 1fr 1fr; /* Two columns */
+    }
+  }
+  
+  /* Section styling remains the same */
+  .section {
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    min-height: 200px; /* optional for balance */
+  }
+  
+  /* Fade-in for sections */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+  }
+  .fade-in:nth-child(1) { animation-delay: 0.2s; }
+  .fade-in:nth-child(2) { animation-delay: 0.4s; }
+  .fade-in:nth-child(3) { animation-delay: 0.6s; }
+  .fade-in:nth-child(4) { animation-delay: 0.8s; }
+  .fade-in:nth-child(5) { animation-delay: 1s; }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 8px;
+  }
+  
+  .profile-card {
+    text-align: center;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid white;
+  }
+  
+  .info-list p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+  }
+  
+
+  /* Page Header */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.1);
+    padding: 12px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    margin-bottom: 20px;
+  }
+  
+  /* Back button */
+  .back-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background: rgba(255,255,255,0.3);
+  }
+  
+  /* Title */
+  .page-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    .page-header {
+      padding: 16px 30px;
+    }
+  
+    .back-btn {
+      font-size: 1rem;
+      padding: 10px 16px;
+    }
+  
+    .page-title {
+      font-size: 1.5rem;
+    }
+  }
+  

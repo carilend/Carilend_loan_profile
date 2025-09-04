@@ -1,0 +1,177 @@
+/* --- Global resets for consistent input sizing/alignment --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img, video { max-width: 100%; height: auto; }
+input, button, select, textarea { font: inherit; }
+
+/* Background + theme */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(-45deg, #4CAF50, #2196F3, #81C784, #64B5F6);
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
+  color: white;
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- LAYOUT ---------- */
+.content {
+  /* keep it fluid but cap nicely on desktop */
+  width: min(1200px, 100% - 32px);
+  margin: 30px auto;
+  display: grid !important;     /* override any earlier flex rules */
+  grid-template-columns: 1fr;   /* mobile: single column */
+  gap: 25px;
+}
+
+/* Desktop: 2 columns */
+@media (min-width: 900px) {
+  .content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+/* If you want the "Profile Picture" section to span both columns on desktop, add this: */
+/* .section--full { grid-column: 1 / -1; } */
+
+/* ---------- ANIMATIONS ---------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease forwards;
+}
+.fade-in:nth-of-type(1) { animation-delay: 0.2s; }
+.fade-in:nth-of-type(2) { animation-delay: 0.4s; }
+.fade-in:nth-of-type(3) { animation-delay: 0.6s; }
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- CARDS ---------- */
+.section {
+  background: rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title */
+.section-title {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  padding-bottom: 8px;
+}
+
+/* ---------- FORMS (mobile-perfect alignment) ---------- */
+.form {
+  display: grid;
+  grid-template-columns: 1fr; /* one column on mobile */
+  gap: 12px;
+}
+
+/* Label above input, consistent spacing */
+.form label {
+  display: block;
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+/* Inputs full width, consistent padding/border */
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"],
+.form input[type="date"],
+.form input[type="password"],
+.form input[type="number"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Placeholder + focus states */
+.form input::placeholder { color: rgba(255,255,255,0.85); }
+.form input:focus {
+  border-color: #FFD700;
+  box-shadow: 0 0 0 3px rgba(255,215,0,0.25);
+}
+
+/* On desktop, optional 2-column fields for longer forms */
+@media (min-width: 900px) {
+  .form.form--two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 18px;
+  }
+  /* Make any full-width rows span both columns when needed */
+  .form .full-width { grid-column: 1 / -1; }
+}
+
+/* Buttons */
+.save-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #FFD700;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.save-btn:hover { background: #FFC107; }
+
+/* ---------- PROFILE PICTURE BLOCK ---------- */
+.profile-card { text-align: center; }
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  border: 3px solid white;
+  object-fit: cover;
+}
+
+/* ---------- HEADER ---------- */
+.page-header {
+  width: min(1200px, 100% - 32px);
+  margin: 20px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 12px;
+}
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.back-btn:hover { background: rgba(255,255,255,0.3); }
+.page-title { margin: 0; font-size: 1.4rem; }

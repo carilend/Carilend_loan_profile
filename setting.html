@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Settings</title>
+  <link rel="stylesheet" href="css/setting.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <!-- Page Header -->
+  <header class="page-header">
+    <button class="back-btn" onclick="history.back()">
+      <span class="material-icons">arrow_back</span> Back
+    </button>
+    <h1 class="page-title">Account Settings</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content">
+    <!-- Profile Settings -->
+    <a href="profile-settings.html" class="section fade-in">
+      <h2 class="section-title">Profile Settings</h2>
+      <ul class="settings-list">
+        <li><span class="material-icons">edit</span> Edit Profile</li>
+        <li><span class="material-icons">person</span> Update Personal Information</li>
+        <li><span class="material-icons">photo_camera</span> Change Profile Picture</li>
+      </ul>
+    </a>
+
+    <!-- Preferences -->
+    <section class="section fade-in">
+      <h2 class="section-title">Preferences</h2>
+      <ul class="settings-list">
+        <li><span class="material-icons">notifications</span> Notification Preferences</li>
+        <li><span class="material-icons">palette</span> Theme & Display</li>
+        <li><span class="material-icons">language</span> Language</li>
+      </ul>
+    </section>
+
+    <!-- Security -->
+    <!-- <section class="section fade-in">
+      <h2 class="section-title">Security</h2>
+      <ul class="settings-list">
+        <li><span class="material-icons">lock</span> Change Password</li>
+        <li><span class="material-icons">fingerprint</span> Two-Factor Authentication</li>
+        <li><span class="material-icons">security</span> Security Questions</li>
+      </ul>
+    </section> -->
+
+    <!-- Support & Logout -->
+    <section class="section fade-in support">
+      <h2 class="section-title">Support & Logout</h2>
+      <button class="support-btn"><span class="material-icons">help</span> Help & Support</button>
+      <button class="logout-btn"><span class="material-icons">logout</span> Logout</button>
+    </section>
+  </main>
+
+  <script src="js/profile-settings.js"></script>
+</body>
+</html>

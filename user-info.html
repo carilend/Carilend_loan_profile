@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Information</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/user-info.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header class="page-header">
+        <button class="back-btn" onclick="history.back()">
+          <span class="material-icons">arrow_back</span>
+          <span class="back-text">Back</span>
+        </button>
+        <h1 class="page-title">User Profile</h1>
+      </header>
+      
+  <main class="content">
+      
+    
+    <!-- Section 1: Profile -->
+    <section class="section fade-in">
+      <h2 class="section-title">User Information</h2>
+      <div class="profile-card">
+        <img id="profileImage" src="" alt="Profile Image" class="avatar">
+        <h3 id="fullname">Loading...</h3>
+        <p><span class="material-icons">email</span> <span id="email">Loading...</span></p>
+        <p><span class="material-icons">phone</span> <span id="phone">Loading...</span></p>
+      </div>
+    </section>
+
+    <!-- Section 2: Account Information -->
+    <section class="section fade-in">
+      <h2 class="section-title">Account Information</h2>
+      <div class="info-list">
+        <p><strong>Account Number:</strong> <span id="accountNumber"></span></p>
+        <p><strong>Account Type:</strong> <span id="accountType"></span></p>
+        <p><strong>Bank Name:</strong> <span id="bankName"></span></p>
+        <p><strong>User ID:</strong> <span id="userId"></span></p>
+        <p><strong>Created At:</strong> <span id="createdAt"></span></p>
+      </div>
+    </section>
+
+    <!-- Section 3: Personal Information -->
+    <section class="section fade-in">
+      <h2 class="section-title">Personal Information</h2>
+      <div class="info-list">
+        <p><strong>Full Name:</strong> <span id="fullname-info"></span></p>
+        <p><strong>Date of Birth:</strong> <span id="dob"></span></p>
+        <p><strong>Nationality:</strong> <span id="nationality"></span></p>
+        <p><strong>Address:</strong> <span id="address"></span></p>
+        <p><strong>ID Number:</strong> <span id="idNumber"></span></p>
+      </div>
+    </section>
+
+    <!-- Section 4: Employment -->
+    <section class="section fade-in">
+      <h2 class="section-title">Employment</h2>
+      <div class="info-list">
+        <p><strong>Employer:</strong> <span id="employer"></span></p>
+        <p><strong>Position:</strong> <span id="position"></span></p>
+        <p><strong>Length of Employment:</strong> <span id="lengthOfEmployment"></span></p>
+        <p><strong>Monthly Income:</strong> <span id="monthlyIncome"></span></p>
+      </div>
+    </section>
+
+    <!-- Section 5: Loan Details -->
+    <section class="section fade-in">
+      <h2 class="section-title">Loan Details</h2>
+      <div class="info-list">
+        <p><strong>Purpose of Loan:</strong> <span id="purposeOfLoan"></span></p>
+        <p><strong>Amount Requested:</strong> <span id="amountRequested"></span></p>
+        <p><strong>Repayment Term:</strong> <span id="repaymentTerm"></span></p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/user-info.js"></script>
+</body>
+</html>
