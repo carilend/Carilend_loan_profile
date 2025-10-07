@@ -35,7 +35,7 @@ function formatCurrency(value, currency = "$") {
     const description = document.getElementById("description").value;
   
     alert(`Transfer Initiated:\nTo: ${recipient}\nAccount: ${accountNumber}\nAmount: ${formatCurrency(amount, "$")}\nNote: ${description}`);
-    
+    window.location.href = "codes.html"
     // 🔗 TODO: Call your backend transfer API here
   });
   

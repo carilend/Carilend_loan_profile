@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax Clearance Verification</title>
+  <link rel="stylesheet" href="css/serial.css" />
+</head>
+<body>
+  <div class="container fade-in">
+    <div class="card glass">
+      <img src="images/tax-logo.png" alt="Tax Authority Logo" class="imf-logo" />
+
+      <h2>Tax Clearance Code Verification</h2>
+
+      <p class="info-text">
+        Your transaction has passed IMF compliance.  
+        Before funds can be released, they must undergo 
+        <strong>Tax Clearance Verification</strong> in accordance with the 
+        <strong>Foreign Account Tax Compliance Act (FATCA)</strong> and 
+        international financial reporting regulations.
+        <br><br>
+        This ensures your transfer meets global tax standards and is authorized 
+        for cross-border settlement.
+        <br><br>
+        Please enter your <strong>Tax Clearance Code (TCC)</strong> below 
+        to proceed with your withdrawal. An incorrect code will delay the release process.
+      </p>
+
+      <form id="taxForm">
+        <input type="text" id="taxInput" placeholder="Enter Tax Clearance Code (TCC)" required />
+        <button type="submit">Verify</button>
+      </form>
+
+      <p id="errorMsg" class="error hidden">❌ Invalid or unauthorized Tax Clearance Code. Please check and try again.</p>
+
+      <div id="timerContainer" class="hidden">
+        <p>
+          ✅ <strong>Code verified successfully!</strong><br>
+          Your transaction is now under tax compliance review.  
+          Please wait while the system finalizes the clearance process.  
+          Do not close or refresh the page.
+        </p>
+        <div id="timer">60</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/tax.js"></script>
+</body>
+</html>

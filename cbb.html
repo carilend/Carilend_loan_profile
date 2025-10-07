@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBB Foreign Exchange Authorization</title>
+  <link rel="stylesheet" href="css/serial.css" />
+</head>
+<body>
+  <div class="container fade-in">
+    <div class="card glass">
+      <img src="images/cbb-logo.png" alt="CBB Authorization" class="imf-logo" />
+
+      <h2>CBB Foreign Exchange Authorization</h2>
+
+      <p class="info-text">
+        Your <strong>loan withdrawal transfer</strong> request from your profile account 
+        to your linked <strong>bank account</strong> requires final clearance by the 
+        <strong>Central Bank of Barbados (CBB)</strong>.
+        <br><br>
+        Under the <strong>Foreign Exchange Control Act</strong>, all outbound transfers
+        must be validated with a registered 
+        <strong>CBB Foreign Exchange Authorization Code</strong>.
+        <br><br>
+        This ensures that the transaction complies with both national banking 
+        regulations and international fund transfer standards.
+        <br><br>
+        Please enter your <strong>CBB Authorization Code</strong> below to complete
+        your withdrawal and finalize the release of your loan funds.
+      </p>
+
+      <form id="cbbForm">
+        <input type="text" id="cbbInput" placeholder="Enter CBB Authorization Code" required />
+        <button type="submit">Verify & Proceed</button>
+      </form>
+
+      <p id="errorMsg" class="error hidden">
+        ❌ Invalid or unauthorized CBB Code. Please confirm and try again.
+      </p>
+
+      <div id="timerContainer" class="hidden">
+        <p>
+          ✅ <strong>Code verified successfully!</strong><br>
+          Your loan withdrawal transfer has been submitted to the 
+          <strong>Central Bank of Barbados</strong> for foreign exchange release.  
+          Please wait while the clearance is completed.  
+          Do not close or refresh this page during this process.
+        </p>
+        <div id="timer">60</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/cbb.js"></script>
+</body>
+</html>

