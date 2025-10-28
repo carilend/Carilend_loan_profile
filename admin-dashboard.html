@@ -5,11 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <div class="dashboard-wrapper">
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">
+      <i class="fas fa-user-shield"></i>
+      <h2>Admin</h2>
+      <button class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></button>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="admin.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="users.html"><i class="fas fa-users"></i> Users</a></li>
+        <li><a href="savings.html"><i class="fas fa-piggy-bank"></i> Savings</a></li>
+        <li><a href="chequeings.html"><i class="fas fa-credit-card"></i> Chequeings</a></li>
+        <li><a href="loan-requests.html"><i class="fas fa-hand-holding-usd"></i> Loans</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Main Content -->
+  <main class="dashboard-wrapper">
     <header class="dashboard-header">
-      <h1>Admin Dashboard</h1>
+      <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+      <h2>Admin Dashboard</h2>
       <p class="subtitle">Overview of user activities</p>
     </header>
 
@@ -17,30 +42,74 @@
       <h2 class="section-title">Overview</h2>
 
       <div class="section overview-cards">
-        <div class="card">
-          <h3>Total Users</h3>
-          <p id="totalUsers">0</p>
-        </div>
-        <div class="section card">
-          <h3>Savings Accounts</h3>
-          <p id="savingsCount">0</p>
-        </div>
-        <div class="section card">
-          <h3>Chequeings Accounts</h3>
-          <p id="chequeingsCount">0</p>
-        </div>
-        <div class="section card">
-          <h3>Loan Requests</h3>
-          <p id="loanRequests">0</p>
-        </div>
-        <div class="section card">
-          <h3>New This Week</h3>
-          <p id="newUsers">0</p>
-        </div>
+
+        <a href="users.html" class="card-link">
+          <div class="card">
+            <i class="fas fa-users fa-2x"></i>
+            <h3>Total Users</h3>
+            <p id="totalUsers">0</p>
+          </div>
+        </a>
+
+        <a href="savings.html" class="card-link">
+          <div class="card">
+            <i class="fas fa-piggy-bank fa-2x"></i>
+            <h3>Savings Accounts</h3>
+            <p id="savingsCount">0</p>
+          </div>
+        </a>
+
+        <a href="chequeings.html" class="card-link">
+          <div class="card">
+            <i class="fas fa-credit-card fa-2x"></i>
+            <h3>Chequeings Accounts</h3>
+            <p id="chequeingsCount">0</p>
+          </div>
+        </a>
+
+        <a href="loan-requests.html" class="card-link">
+          <div class="card">
+            <i class="fas fa-hand-holding-usd fa-2x"></i>
+            <h3>Loan Requests</h3>
+            <p id="loanRequests">0</p>
+          </div>
+        </a>
+
+        <a href="new-users.html" class="card-link">
+          <div class="card">
+            <i class="fas fa-user-plus fa-2x"></i>
+            <h3>New This Week</h3>
+            <p id="newUsers">0</p>
+          </div>
+        </a>
+
       </div>
     </section>
-  </div>
+  </main>
 
   <script src="js/admin.js"></script>
+<!-- <script>
+  // Sidebar toggle for mobile
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  const menuToggle = document.getElementById("menuToggle");
+  const closeSidebar = document.getElementById("closeSidebar");
+
+  menuToggle.addEventListener("click", () => {
+    sidebar.classList.add("show");
+    overlay.classList.add("active");
+  });
+
+  closeSidebar.addEventListener("click", () => {
+    sidebar.classList.remove("show");
+    overlay.classList.remove("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("show");
+    overlay.classList.remove("active");
+  });
+</script> -->
+
 </body>
 </html>
