@@ -1,0 +1,201 @@
+/* ===== General Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Background + Layout ===== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #4caf50, #2196f3, #81c784, #64b5f6);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Card Container ===== */
+.details-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  width: 95%;
+  max-width: 600px;
+  text-align: left;
+  color: #fff;
+  margin-top: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.details-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Profile Image ===== */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 10px auto 20px;
+  border: 3px solid #4caf50;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Headings ===== */
+.details-box h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+/* ===== Details Grid ===== */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.details-grid div {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.details-grid div strong {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* ===== Back Button ===== */
+.back-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #4caf50, #2196f3);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 14px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: linear-gradient(90deg, #43a047, #1976d2);
+  transform: translateY(-2px);
+}
+/* ===== Manage User Button ===== */
+.manage-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #ff9800, #f44336);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 14px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.manage-btn:hover {
+  background: linear-gradient(90deg, #fb8c00, #e53935);
+  transform: translateY(-2px);
+}
+
+
+/* ===== Tablet View (≤ 768px) ===== */
+@media (max-width: 768px) {
+  .details-box {
+    padding: 25px;
+    width: 90%;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .details-box h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ===== Mobile View (≤ 480px) ===== */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .details-box {
+    padding: 20px;
+    width: 95%;
+    border-radius: 16px;
+    margin-top: 20px;
+  }
+
+  .profile-img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .details-box h2 {
+    font-size: 1.4rem;
+  }
+
+  .details-grid div {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .back-btn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* ===== Extra Small Phones (≤ 360px) ===== */
+@media (max-width: 360px) {
+  .details-box {
+    padding: 16px;
+    width: 100%;
+  }
+
+  .details-grid div {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .back-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

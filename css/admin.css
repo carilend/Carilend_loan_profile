@@ -185,6 +185,7 @@ body {
 @media (max-width: 900px) {
   .dashboard-wrapper {
     margin-left: 0;
+    max-width: 100vw;
     
   }
 
@@ -223,7 +224,5 @@ body {
   .overview-cards {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
-  .admin-dashboard{
-    max-width: 75vw
-  }
+  
 }
