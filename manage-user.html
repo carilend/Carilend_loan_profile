@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage User</title>
+  <link rel="stylesheet" href="css/manage-user.css" />
+</head>
+<body>
+  <main class="manage-container">
+    <div class="user-header">
+      <img id="profileImage" src="https://via.placeholder.com/100" alt="Profile Image" class="profile-img" />
+      <h2 id="fullname">Loading...</h2>
+      <p id="email"></p>
+    </div>
+
+    <div class="action-cards">
+      <button class="action-btn" id="editUser">✏️ Edit User Info</button>
+      <button class="action-btn" id="viewTransactions">💰 View Transactions</button>
+      <button class="action-btn" id="addSavings">💵 Add Savings</button>
+      <button class="action-btn" id="freezeAccount">🚫 Freeze Account</button>
+
+      <button class="action-btn" id="setBalance">💰 Set Balance</button>
+      <button class="action-btn danger" id="deleteUser">🗑️ Delete User</button>
+    </div>
+
+    <div class="bottom-actions">
+      <button class="back-btn" onclick="window.location.href='user-details.html'">← Back to Details</button>
+    </div>
+  </main>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Processing...</p>
+  </div>
+
+  <div class="floating-nav">
+    <button class="float-btn" title="Home" onclick="window.location.href='admin-dashboard.html'">🏠</button>
+    <button class="float-btn" title="All Users" onclick="window.location.href='users.html'">👥</button>
+  </div>
+
+  <script src="js/manage-user.js"></script>
+</body>
+</html>

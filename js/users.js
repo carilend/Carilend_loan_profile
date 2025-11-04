@@ -20,7 +20,7 @@ async function loadUsers() {
     if (!res.ok) throw new Error(`Failed: ${res.status}`);
     const data = await res.json();
     const users = data.data || [];
-
+    console.log(users)
     if (users.length === 0) {
       tableBody.innerHTML = `<tr><td colspan="6" class="loading">No users found.</td></tr>`;
       return;
