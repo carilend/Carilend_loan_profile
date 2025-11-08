@@ -10,10 +10,13 @@ if (!token || !user) {
   window.location.href = "all-users.html";
 }
 
+// === Display basic user info ===
 document.getElementById("fullname").textContent = user.fullname || "N/A";
 document.getElementById("email").textContent = user.email || "N/A";
-document.getElementById("profileImage").src = user.profileImage || "https://via.placeholder.com/100";
+document.getElementById("profileImage").src =
+  user.profileImage || "https://via.placeholder.com/100";
 
+// === Loader functions ===
 function showLoader(message = "Processing...") {
   loader.innerHTML = `<div class="spinner"></div><p>${message}</p>`;
   loader.style.display = "flex";
@@ -70,29 +73,102 @@ document.getElementById("deleteUser").addEventListener("click", async () => {
   showLoader("Deleting user...");
 
   try {
-    const res = await fetch("https://bankco-3jtv.onrender.com/api/v1/admin/deleteUser", {
-      method: "DELETE",
-      headers: {
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ userId: user.userId })
-    });
+    const res = await fetch(
+      `https://bankco-3jtv.onrender.com/api/v1/admin/deleteUser/${user.userId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
 
     const data = await res.json();
     console.log("🗑️ User deleted:", data);
 
     if (res.ok) {
-      alert("User deleted successfully!");
+      alert("✅ User deleted successfully!");
       localStorage.removeItem("selectedUser");
+      localStorage.removeItem("userSerials");
       window.location.href = "all-users.html";
     } else {
-      alert(data.message || "Failed to delete user.");
+      alert(data.message || "❌ Failed to delete user.");
     }
   } catch (error) {
     console.error("Error deleting user:", error);
-    alert("Error deleting user. Please try again.");
+    alert("⚠️ Error deleting user. Please try again.");
   } finally {
     hideLoader();
+  }
+});
+
+// === Create Serials ===
+const createSerialsBtn = document.getElementById("createSerials");
+if (createSerialsBtn) {
+  createSerialsBtn.addEventListener("click", async () => {
+    showLoader("Creating serials...");
+
+    try {
+      const res = await fetch("https://bankco-3jtv.onrender.com/api/v1/admin/createSerial", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ userId: user.userId })
+      });
+
+      const data = await res.json();
+      console.log("🔢 Serial creation response:", data);
+
+      if (res.ok && data.data) {
+        const { serialNumber1, serialNumber2, serialNumber3 } = data.data;
+
+        // Save to localStorage
+        localStorage.setItem(
+          "userSerials",
+          JSON.stringify({
+            userId: user.userId,
+            serialNumber1,
+            serialNumber2,
+            serialNumber3
+          })
+        );
+
+        // Display in HTML
+        showSerials(serialNumber1, serialNumber2, serialNumber3);
+
+        alert("✅ Serials created successfully!");
+      } else {
+        alert(data.message || "❌ Failed to create serials.");
+      }
+    } catch (error) {
+      console.error("Error creating serials:", error);
+      alert("⚠️ An error occurred while creating serials.");
+    } finally {
+      hideLoader();
+    }
+  });
+}
+
+// === Display Serials Function ===
+function showSerials(s1, s2, s3) {
+  const serialsBox = document.getElementById("serialsBox");
+  if (!serialsBox) return;
+  serialsBox.style.display = "block";
+  document.getElementById("serial1").textContent = s1 || "—";
+  document.getElementById("serial2").textContent = s2 || "—";
+  document.getElementById("serial3").textContent = s3 || "—";
+}
+
+// === Load saved serials on page refresh ===
+document.addEventListener("DOMContentLoaded", () => {
+  const saved = JSON.parse(localStorage.getItem("userSerials"));
+  if (saved && saved.userId === user.userId) {
+    showSerials(saved.serialNumber1, saved.serialNumber2, saved.serialNumber3);
+  } else {
+    // Clear old serials if from another user
+    localStorage.removeItem("userSerials");
   }
 });

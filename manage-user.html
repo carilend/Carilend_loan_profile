@@ -15,14 +15,22 @@
     </div>
 
     <div class="action-cards">
-      <button class="action-btn" id="editUser">✏️ Edit User Info</button>
-      <button class="action-btn" id="viewTransactions">💰 View Transactions</button>
-      <button class="action-btn" id="addSavings">💵 Add Savings</button>
-      <button class="action-btn" id="freezeAccount">🚫 Freeze Account</button>
-
+        <button class="action-btn" id="viewTransactions">💰 View Transactions</button>
+        <button class="action-btn" id="freezeAccount">🚫 Freeze Account</button>
+        
+      <button class="action-btn" id="setBilling">💵 Set Billing</button>
+      <button class="action-btn" id="createSerials">✏️Create Serial  Codes</button>
       <button class="action-btn" id="setBalance">💰 Set Balance</button>
       <button class="action-btn danger" id="deleteUser">🗑️ Delete User</button>
     </div>
+
+    <div class="serials-box" id="serialsBox" style="display: none;">
+      <h3>🔢 User Serials</h3>
+      <p><strong>Serial 1:</strong> <span id="serial1">—</span></p>
+      <p><strong>Serial 2:</strong> <span id="serial2">—</span></p>
+      <p><strong>Serial 3:</strong> <span id="serial3">—</span></p>
+    </div>
+
 
     <div class="bottom-actions">
       <button class="back-btn" onclick="window.location.href='user-details.html'">← Back to Details</button>
