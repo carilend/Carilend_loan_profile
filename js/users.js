@@ -51,7 +51,7 @@ function renderTable(users) {
       <td class="clickable">${u.fullname || "N/A"}</td>
       <td>${u.email || "N/A"}</td>
       <td>${u.accountType || "—"}</td>
-      <td>$${Number(u.balance || 0).toLocaleString()}</td>
+      <td>$${Number(u.lockedBalance || 0).toLocaleString()}</td>
       <td>${new Date(u.createdAt).toLocaleDateString()}</td>
     </tr>
   `).join("");

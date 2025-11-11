@@ -35,13 +35,14 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
       localStorage.setItem("authToken", data.token);
       // localStorage.setItem("userData", JSON.stringify(data.data[0]));
       
-      const role = data.data.role
+      const role = data.data[0].role
       if(role === "user"){
         window.location.href = "dashboard.html"; // redirect to dashboard
       }else{
         window.location.href = "admin-dashboard.html";
       }
       alert("Login successful! Redirecting...");
+      console.log(role)
     })
     .catch(error => {
       alert(error.message || "An error occurred while logging in.");

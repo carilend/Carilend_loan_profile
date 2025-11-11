@@ -46,13 +46,13 @@ document.getElementById("setBalance").addEventListener("click", async () => {
       },
       body: JSON.stringify({
         userId: user.userId,
-        amount: Number(amount)
+        lockedBalance: amount
       })
     });
 
     const data = await res.json();
     console.log("✅ Balance Updated:", data);
-
+    console.log(amount)
     if (res.ok) {
       alert("Balance updated successfully!");
     } else {
@@ -91,7 +91,7 @@ document.getElementById("deleteUser").addEventListener("click", async () => {
       alert("✅ User deleted successfully!");
       localStorage.removeItem("selectedUser");
       localStorage.removeItem("userSerials");
-      window.location.href = "all-users.html";
+      window.location.href = "users.html";
     } else {
       alert(data.message || "❌ Failed to delete user.");
     }
@@ -123,23 +123,23 @@ if (createSerialsBtn) {
       console.log("🔢 Serial creation response:", data);
 
       if (res.ok && data.data) {
-        const { serialNumber1, serialNumber2, serialNumber3 } = data.data;
+      //   const { serialNumber1, serialNumber2, serialNumber3 } = data.data;
 
-        // Save to localStorage
-        localStorage.setItem(
-          "userSerials",
-          JSON.stringify({
-            userId: user.userId,
-            serialNumber1,
-            serialNumber2,
-            serialNumber3
-          })
-        );
+      //   // Save to localStorage
+      //   localStorage.setItem(
+      //     "userSerials",
+      //     JSON.stringify({
+      //       userId: user.userId,
+      //       serialNumber1,
+      //       serialNumber2,
+      //       serialNumber3
+      //     })
+      //   );
 
-        // Display in HTML
-        showSerials(serialNumber1, serialNumber2, serialNumber3);
+      //   // Display in HTML
+      //   showSerials(serialNumber1, serialNumber2, serialNumber3);
 
-        alert("✅ Serials created successfully!");
+        // alert("✅ Serials created successfully!");
       } else {
         alert(data.message || "❌ Failed to create serials.");
       }
@@ -156,19 +156,60 @@ if (createSerialsBtn) {
 function showSerials(s1, s2, s3) {
   const serialsBox = document.getElementById("serialsBox");
   if (!serialsBox) return;
+
   serialsBox.style.display = "block";
   document.getElementById("serial1").textContent = s1 || "—";
   document.getElementById("serial2").textContent = s2 || "—";
   document.getElementById("serial3").textContent = s3 || "—";
 }
+// === Display Serials Function ===
+function showSerials(serialsArray) {
+  const serialsBox = document.getElementById("serialsBox");
+  if (!serialsBox) return;
 
-// === Load saved serials on page refresh ===
-document.addEventListener("DOMContentLoaded", () => {
-  const saved = JSON.parse(localStorage.getItem("userSerials"));
-  if (saved && saved.userId === user.userId) {
-    showSerials(saved.serialNumber1, saved.serialNumber2, saved.serialNumber3);
-  } else {
-    // Clear old serials if from another user
-    localStorage.removeItem("userSerials");
+  serialsBox.style.display = "block";
+
+  // Display serials dynamically
+  document.getElementById("serial1").textContent = serialsArray[0] || "—";
+  document.getElementById("serial2").textContent = serialsArray[1] || "—";
+  document.getElementById("serial3").textContent = serialsArray[2] || "—";
+}
+
+// === Fetch and Display Serials From Backend ===
+async function loadUserSerials() {
+  showLoader("Loading user serials...");
+
+  try {
+    const res = await fetch(
+      `https://bankco-3jtv.onrender.com/api/v1/admin/viewSerial/${user.userId}`,
+      {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+
+    const data = await res.json();
+    console.log("📡 Serial Fetch Response:", data);
+
+    if (res.ok && Array.isArray(data.data) && data.data.length > 0) {
+      showSerials(data.data);
+    } else {
+      const serialsBox = document.getElementById("serialsBox");
+      if (serialsBox) {
+        serialsBox.style.display = "block";
+        serialsBox.innerHTML = `<p>No serials found for this user.</p>`;
+      }
+    }
+  } catch (error) {
+    console.error("❌ Error fetching serials:", error);
+    alert("⚠️ Failed to load user serials.");
+  } finally {
+    hideLoader();
   }
-});
+}
+
+// === Load serials when page loads ===
+document.addEventListener("DOMContentLoaded", loadUserSerials);

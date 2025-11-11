@@ -30,7 +30,7 @@ function renderUserDetails(u, container) {
         <div><strong>Account Type:</strong> ${u.accountType || "N/A"}</div>
         <div><strong>Account Number:</strong> ${u.accountNumber || "N/A"}</div>
         <div><strong>Bank Name:</strong> ${u.bankName || "N/A"}</div>
-        <div><strong>Balance:</strong> $${Number(u.balance || 0).toLocaleString()}</div>
+        <div><strong>Balance:</strong> $${Number(u.lockedBalance || 0).toLocaleString()}</div>
         <div><strong>Amount Requested:</strong> $${Number(u.amountRequested || 0).toLocaleString()}</div>
         <div><strong>Purpose of Loan:</strong> ${u.purposeOfLoan || "N/A"}</div>
         <div><strong>Repayment Term:</strong> ${u.repaymentTerm || "N/A"}</div>
@@ -40,6 +40,9 @@ function renderUserDetails(u, container) {
         <div><strong>Monthly Income:</strong> $${Number(u.monthlyIncome || 0).toLocaleString()}</div>
         <div><strong>Date Created:</strong> ${new Date(u.createdAt).toLocaleString()}</div>
         <div><strong>Role:</strong> ${u.role || "user"}</div>
+        <div><strong>Billing1 Status:</strong> ${u.billing1Status || "user"}</div>
+        <div><strong>Billing2 Status:</strong> ${u.billing2Status || "user"}</div>
+        <div><strong>Billing3 Status:</strong> ${u.billing3Status || "user"}</div>
       </div>
 
       <div class="user-actions">
